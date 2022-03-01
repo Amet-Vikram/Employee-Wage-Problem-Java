@@ -2,11 +2,23 @@ package com.empWage;
 
 public class empWageComputation {
     public static void main(String[] args) {
-        int Is_present = 1;
-        double empCheck = Math.floor((Math.random()*100)%2);
-        if (empCheck == Is_present)
+        int is_present= 1;
+        int is_parttime = 2;
+        int hrs = 0 ;
+        int wage = 20;
+        double empCheck = Math.floor((Math.random()*100)%3);
+        if (empCheck == is_present) {
             System.out.println("Employee is Present ");
-        else
+            hrs = 8;
+        }
+        else if (empCheck == is_parttime) {
+            System.out.println("Employee is Part time ");
+            hrs = 4;
+        }
+        else {
             System.out.println("Employee is absent");
+        }
+        int salary = wage * hrs;
+        System.out.println("The salary is " + salary);
     }
 }
