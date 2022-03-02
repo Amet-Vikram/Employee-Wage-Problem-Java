@@ -1,18 +1,20 @@
 package com.empWage;
 
 public class empWageComputation {
+    //Class constants
+    static final int WAGE = 20;
+    static final int MAX_WORKING_DAYS = 20;
+    static final int MAX_WORKING_HRS = 99;
+
     public static void main(String[] args) {
-        //Variables
+        //Local Variables
         int hrs;
-        int wage = 20;
-        int total_hrs = 0;
+        int totalHrs = 0;
         int salary = 0;
-        int maxWorkingDays = 20;
-        int total_days = 0;
-        int maxWorkingHrs = 99;
+        int totalDays = 0;
         //Looping for a month
-        while (total_days < maxWorkingDays && total_hrs <= maxWorkingHrs) {
-            total_days++;
+        while (totalDays < MAX_WORKING_DAYS && totalHrs <= MAX_WORKING_HRS) {
+            totalDays++;
             //Performing check
             double empCheck = Math.floor((Math.random() * 100) % 3);
             //Operations
@@ -21,11 +23,11 @@ public class empWageComputation {
                 case 2 -> hrs = 4;
                 default -> hrs = 0;
             }
-            total_hrs += hrs;
-            salary = wage * total_hrs;
+            totalHrs += hrs;
+            salary = WAGE * totalHrs;
         }
-        System.out.println("Total Working Days are " +total_days);
-        System.out.println("Total Working Hours are " + total_hrs);
+        System.out.println("Total Working Days are " +totalDays);
+        System.out.println("Total Working Hours are " + totalHrs);
         System.out.println("The total salary is " + salary);
     }
 }
