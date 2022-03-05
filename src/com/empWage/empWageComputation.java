@@ -19,8 +19,8 @@ public class empWageComputation {
             double empCheck = Math.floor((Math.random() * 100) % 3);
             //Operations
             switch ((int) empCheck) {
-                case 1 -> hrs = 8;
-                case 2 -> hrs = 4;
+                case 1 -> hrs = 16;
+                case 2 -> hrs = 8;
                 default -> hrs = 0;
             }
             totalHrs += hrs;
