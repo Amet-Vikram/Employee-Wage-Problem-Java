@@ -2,35 +2,49 @@ package com.empWage;
 
 public class empWageComputation {
     //Class constants
-    static final int WAGE = 20;
-    static final int MAX_WORKING_DAYS = 20;
-    static final int MAX_WORKING_HRS = 99;
+    final int WAGE = 20;
+    final int MAX_WORKING_DAYS = 20;
+    final int MAX_WORKING_HRS = 99;
+    //class Variables
+    int totalHrs = 0;
+    int totalDays = 1;
 
-    public static void main(String[] args) {
-        //Local Variables
-        int hrs;
-        int totalHrs = 0;
-        int salary = 0;
-        int totalDays = 1;
-        //Looping for a month
-        while (totalDays != MAX_WORKING_DAYS && totalHrs != MAX_WORKING_HRS) {
-            totalDays++;
-            //Performing check
-            double empCheck = empChoice();
-            //Operations
-            switch ((int) empCheck) {
-                case 1 -> hrs = 8;
-                case 2 -> hrs = 4;
-                default -> hrs = 0;
-            }
-            totalHrs += hrs;
-            salary = WAGE * totalHrs;
+    //update employee work hours
+    void setTotalHrs(int x){
+        switch (x) {
+            case 1 -> this.totalHrs += 8;
+            case 2 -> this.totalHrs += 4;
+            default -> { }
         }
-        System.out.println("Total Working Days are " +totalDays);
-        System.out.println("Total Working Hours are " + totalHrs);
-        System.out.println("The total salary is " + salary);
     }
-    static double empChoice(){
-        return Math.floor((Math.random() * 100) % 3);
+
+    //Calculate employee salary
+    int calSalary(){
+        return WAGE * this.totalHrs;
+    }
+
+    //Random employee choice
+    static int empChoice(){
+        return (int) Math.floor((Math.random() * 100) % 3);
+    }
+
+    //Driver method
+    public static void main(String[] args) {
+        //Employee 1 object whose wages need to be calculated.
+        empWageComputation emp1 = new empWageComputation();
+
+        //Looping for a month
+        while (emp1.totalDays != emp1.MAX_WORKING_DAYS && emp1.totalHrs != emp1.MAX_WORKING_HRS) {
+            emp1.totalDays++;
+            //Performing check
+            int empCheck = empChoice();
+            //Operations
+            emp1.setTotalHrs(empCheck);
+        }
+
+        //Outputs
+        System.out.println("Total Working Days are " +emp1.totalDays);
+        System.out.println("Total Working Hours are " + emp1.totalHrs);
+        System.out.println("The total salary is " + emp1.calSalary());
     }
 }
