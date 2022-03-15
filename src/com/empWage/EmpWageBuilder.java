@@ -1,5 +1,6 @@
 package com.empWage;
 
+import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 
 interface InterfaceCalculateWage {
@@ -23,7 +24,8 @@ public class EmpWageBuilder implements InterfaceCalculateWage {
             System.out.println("Company: " + company.nameOfCompany);
             System.out.println("Days Worked: " + company.totalDays);
             System.out.println("Hours Worked: " + company.totalHrs);
-            System.out.println("Salary Earned: " + company.totalWage + "\n");
+            System.out.println("Salary Earned: " + company.totalWage);
+            System.out.println("Daily Wage: " + company.dailyWageList+ "\n");
         }
     }
 }
